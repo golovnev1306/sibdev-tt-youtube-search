@@ -1,3 +1,292 @@
-.page {
-  text-align: center;
+@import "sass/vars";
+.app {
+  background-color: $background;
+  min-height: 100vh;
+
+  &__auth, &__main{
+    display: flex;
+    justify-content: center;
+    @media only screen and (max-width: 768px) {
+      padding: 80px 0;
+    }
+    @media only screen and (max-width: 320px) {
+      padding: 0;
+    }
+  }
+  &__auth{
+    padding: 220px 0;
+  }
+
+  &__favorites {
+    padding: 20px 0;
+  }
+}
+
+.auth {
+  &__inner{
+    width: 510px;
+    min-height: 520px;
+    background-color: #FFFFFF;
+    padding: 50px 80px 60px 80px;
+    text-align: center;
+
+    @media only screen and (max-width: 320px) {
+      padding: 20px 30px 25px 30px;
+    }
+  }
+
+  &__logo{
+    padding-bottom: 32px;
+  }
+
+  &__title{
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+    padding-bottom: 20px;
+  }
+
+  &__form{
+    .ant-form-item-label{
+      text-align: left;
+    }
+  }
+
+  &__form-item{
+    flex-direction: column;
+  }
+
+  &__form--error{
+
+    border: 2px solid #ff7777;
+
+  }
+}
+
+.header {
+  background-color: #FFFFFF!important;
+  border-bottom: 1px solid #f0f0f0;
+
+  &__menu {
+    width: 100%;
+    &.ant-menu-horizontal{
+      border-bottom: unset;
+    }
+  }
+
+  &__inner{
+    display: flex;
+    min-height: 80px;
+  }
+
+  &__logo{
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+
+  &__logo-img{
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.menu {
+  background-color: #FFFFFF;
+  display: flex;
+
+  &__item.ant-menu-item {
+    display: flex;
+    align-items: center;
+    max-height: 100%;
+  }
+
+  &__item:hover {
+    background-color: #FFFFFF!important;
+  }
+
+  &__item--logout {
+    margin-left: auto!important;
+  }
+}
+
+.main {
+  &__inner{
+    min-width: 686px;
+    text-align: center;
+  }
+
+  &__search{
+    padding: 220px 0 30px 0;
+    max-width: 686px;
+    margin: 0 auto;
+  }
+
+  &__search--small{
+    margin: 20px 0;
+    padding: 50px 0 30px 0;
+    max-width: unset;
+    .search__title {
+      font-size: 25px;
+      text-align: left;
+      padding-bottom: 20px;
+    }
+
+    .search__form-item {
+
+    }
+  }
+
+  .ant-card {
+    height: 100%;
+  }
+
+  .ant-card-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__view-type{
+    cursor: pointer;
+  }
+}
+
+.search{
+  &__title{
+    font-size: 36px;
+    padding-bottom: 40px;
+  }
+
+  &__form{
+    display: flex;
+    min-height: 52px;
+
+    .ant-form-item-control-input{
+      flex-grow: 1;
+    }
+
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+
+    .ant-form-item-control-input-content{
+      height: 100%;
+      flex-grow: 1;
+    }
+    .ant-input {
+      height: 100%;
+    }
+
+    .ant-btn {
+      height: unset;
+      min-width: 150px;
+    }
+  }
+
+  &__like-btn{
+    position: absolute;
+    height: calc(100% - 2px);
+    right: 0;
+    transform: translateX(-150px);
+    min-width: 50px;
+    top: 1px;
+    cursor: pointer;
+    color: #1890ff;
+  }
+
+  &__form-item{
+    flex-grow: 1;
+  }
+}
+
+.results {
+  &__filter-panel {
+    padding-bottom: 30px;
+  }
+  &__videos-list--d-list {
+    .results__videos-item {
+      background: inherit;
+      border: unset;
+      max-width: 800px;
+    }
+
+    .ant-card-body {
+      flex-direction: row;
+      padding: 15px 0;
+    }
+
+    .video-card {
+      &__title{
+        white-space: unset;
+      }
+
+      &__img{
+        max-height: 100%;
+      }
+
+      &__info {
+        padding: 0 10px;
+        text-align: left;
+      }
+
+      &__link {
+        align-self: start;
+      }
+    }
+  }
+
+  &__videos-list{
+    padding-bottom: 80px;
+  }
+}
+
+.video-card {
+  .ant-card-body{
+    min-height: 100%;
+  }
+
+  &__title{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-bottom: 20px;
+  }
+
+  &__description, &__title {
+    overflow: hidden;
+  }
+  &__description{
+    flex-grow: 1;
+    padding-bottom: 10px;
+  }
+
+  &__info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__link {
+    align-self: flex-end;
+  }
+}
+
+.favorites {
+  &__item {
+    margin-bottom: 10px;
+  }
+}
+
+.favorite-card {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  background-color: #FFFFFF;
+  padding: 15px 15px 15px 30px;
+  border-radius: 10px;
+  border: 1px solid $border;
+
+  &__title {
+    flex-grow: 1;
+  }
 }
